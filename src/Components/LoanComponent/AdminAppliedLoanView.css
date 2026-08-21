@@ -1,0 +1,1339 @@
+/* =========================================================
+   ADMIN APPLIED LOAN VIEW
+   ========================================================= */
+
+.admin-applied-loan-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 35px 45px 60px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8fb 0%,
+            #fdf0f6 45%,
+            #fff8fb 100%
+        );
+
+    color: #351323;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.admin-applied-loan-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.admin-applied-loan-heading-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #7b163f;
+    color: white;
+
+    font-size: 32px;
+
+    box-shadow:
+        0 8px 22px rgba(123, 22, 63, 0.20);
+}
+
+.admin-applied-loan-heading h1 {
+    margin: 0;
+
+    color: #74143d;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.admin-applied-loan-heading p {
+    margin: 8px 0 0;
+
+    color: #765c68;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.admin-applied-loan-summary {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+.admin-loan-summary-card {
+    padding: 22px 25px;
+
+    border: 1px solid #efc9da;
+
+    border-radius: 14px;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 5px 18px rgba(93, 21, 53, 0.07);
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-loan-summary-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 25px rgba(93, 21, 53, 0.12);
+}
+
+.admin-loan-summary-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #765c68;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-loan-summary-card strong {
+    display: block;
+
+    color: #7b163f;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+/* APPROVED SUMMARY */
+
+.admin-loan-summary-card.accepted-summary {
+    border-color: #c7e7d1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f9fffb,
+            #f0fbf4
+        );
+}
+
+.admin-loan-summary-card.accepted-summary strong {
+    color: #168044;
+}
+
+
+/* EMI SUMMARY */
+
+.admin-loan-summary-card.emi-summary {
+    border-color: #bfe6cf;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fffa,
+            #edf9f1
+        );
+}
+
+.admin-loan-summary-card.emi-summary strong {
+    color: #08783d;
+}
+
+
+/* =========================================================
+   LOADING MESSAGE
+   ========================================================= */
+
+.admin-applied-loan-message {
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.admin-applied-loan-message p {
+    margin-top: 15px;
+
+    color: #765c68;
+
+    font-size: 15px;
+}
+
+
+/* SPINNER */
+
+.admin-applied-loan-spinner {
+    width: 45px;
+    height: 45px;
+
+    border: 4px solid #efd2df;
+
+    border-top-color: #7b163f;
+
+    border-radius: 50%;
+
+    animation:
+        adminLoanSpin 0.8s linear infinite;
+}
+
+@keyframes adminLoanSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.admin-applied-loan-error {
+    max-width: 600px;
+
+    margin: 40px auto;
+    padding: 35px;
+
+    text-align: center;
+
+    border: 1px solid #efb8c9;
+
+    border-radius: 16px;
+
+    background: #fff7f9;
+
+    box-shadow:
+        0 8px 25px rgba(123, 22, 63, 0.08);
+}
+
+.admin-applied-loan-error-icon {
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+.admin-applied-loan-error h3 {
+    margin: 0 0 8px;
+
+    color: #8b183f;
+
+    font-size: 21px;
+}
+
+.admin-applied-loan-error p {
+    margin: 0 0 20px;
+
+    color: #765c68;
+}
+
+.admin-applied-loan-retry-btn {
+    padding: 10px 22px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #7b163f;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-applied-loan-retry-btn:hover {
+    background: #60102f;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.admin-applied-loan-empty {
+    max-width: 650px;
+
+    margin: 50px auto;
+    padding: 50px 30px;
+
+    text-align: center;
+
+    border: 1px solid #efd2df;
+
+    border-radius: 18px;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 8px 25px rgba(93, 21, 53, 0.07);
+}
+
+.admin-applied-loan-empty-icon {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.admin-applied-loan-empty h2 {
+    margin: 0 0 8px;
+
+    color: #74143d;
+}
+
+.admin-applied-loan-empty p {
+    margin: 0;
+
+    color: #765c68;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.admin-applied-loan-section {
+    width: 100%;
+
+    margin-bottom: 40px;
+}
+
+.admin-applied-loan-section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+
+    padding: 20px 25px;
+
+    border-radius: 14px;
+
+    border: 1px solid #efd2df;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 4px 15px rgba(93, 21, 53, 0.06);
+}
+
+.admin-applied-loan-section-heading > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.section-heading-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f8e6ee;
+
+    color: #7b163f;
+
+    font-size: 22px;
+}
+
+.admin-applied-loan-section-heading h2 {
+    margin: 0;
+
+    color: #74143d;
+
+    font-size: 22px;
+}
+
+.admin-applied-loan-section-heading p {
+    margin: 5px 0 0;
+
+    color: #806b74;
+
+    font-size: 13px;
+}
+
+.section-count {
+    min-width: 38px;
+    height: 38px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #7b163f;
+    color: white;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ACCEPTED SECTION
+   ========================================================= */
+
+.accepted-section
+.admin-applied-loan-section-heading {
+    border-color: #c8e8d3;
+}
+
+.accepted-section .section-heading-icon {
+    background: #e2f6e8;
+    color: #168044;
+}
+
+.accepted-section
+.admin-applied-loan-section-heading h2 {
+    color: #168044;
+}
+
+.accepted-count {
+    background: #168044;
+}
+
+
+/* =========================================================
+   EMI PAYMENT SECTION
+   ========================================================= */
+
+.emi-payment-section {
+    margin-top: 15px;
+}
+
+.emi-payment-section
+.admin-applied-loan-section-heading {
+    border-color: #bde5ca;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbfffc,
+            #f0faf3
+        );
+}
+
+.emi-payment-section .section-heading-icon {
+    background: #dcf5e4;
+
+    color: #08783d;
+}
+
+.emi-payment-section
+.admin-applied-loan-section-heading h2 {
+    color: #08783d;
+}
+
+.emi-section-count {
+    background: #08783d;
+}
+
+
+/* =========================================================
+   LOAN LIST
+   ========================================================= */
+
+.admin-applied-loan-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   LOAN CARD
+   ========================================================= */
+
+.admin-applied-loan-card {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 25px;
+
+    border: 1px solid #efd2df;
+
+    border-radius: 16px;
+
+    background: #fffafd;
+
+    box-shadow:
+        0 7px 22px rgba(93, 21, 53, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-applied-loan-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 30px rgba(93, 21, 53, 0.11);
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.admin-applied-loan-card-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #efd9e2;
+}
+
+.admin-applied-loan-card-title {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.admin-applied-loan-label {
+    color: #806b74;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+.admin-applied-loan-card-title h2 {
+    margin: 0;
+
+    color: #74143d;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.admin-applied-loan-status {
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border: 1px solid transparent;
+}
+
+.admin-loan-status-pending {
+    color: #a05a00;
+
+    background: #fff4d9;
+
+    border-color: #f3d58a;
+}
+
+.admin-loan-status-accepted {
+    color: #16763e;
+
+    background: #e4f7e9;
+
+    border-color: #b9e3c5;
+}
+
+.admin-loan-status-added {
+    color: #08783d;
+
+    background: #dcf5e4;
+
+    border-color: #afe0bf;
+}
+
+.admin-loan-status-completed {
+    color: #155e35;
+
+    background: #d9f2e1;
+
+    border-color: #a9dbb7;
+}
+
+.admin-loan-status-rejected {
+    color: #a0183f;
+
+    background: #fde8ee;
+
+    border-color: #efbdcc;
+}
+
+.admin-loan-status-default {
+    color: #6d5962;
+
+    background: #f2edf0;
+
+    border-color: #ddd1d7;
+}
+
+
+/* =========================================================
+   DETAILS GRID
+   ========================================================= */
+
+.admin-applied-loan-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+}
+
+.admin-applied-loan-detail {
+    min-height: 68px;
+
+    box-sizing: border-box;
+
+    padding: 15px 17px;
+
+    border: 1px solid #efd6e1;
+
+    border-radius: 11px;
+
+    background: #fff8fb;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.admin-applied-loan-detail span {
+    color: #806b74;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+}
+
+.admin-applied-loan-detail strong {
+    color: #351323;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+.admin-applied-loan-amount {
+    color: #168044 !important;
+
+    font-size: 17px !important;
+}
+
+.admin-remaining-tenure {
+    color: #8b183f !important;
+}
+
+
+/* =========================================================
+   ACTION AREA
+   ========================================================= */
+
+.admin-applied-loan-action-area {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+}
+
+
+/* PENDING */
+
+.pending-area {
+    border: 1px solid #f0d99e;
+
+    background: #fffaf0;
+}
+
+.pending-area
+.admin-applied-loan-action-message span {
+    color: #a05a00;
+}
+
+
+/* ACCEPTED */
+
+.accepted-area {
+    border: 1px solid #bde3c9;
+
+    background: #f2fbf5;
+}
+
+
+/* =========================================================
+   ACTION MESSAGE
+   ========================================================= */
+
+.admin-applied-loan-action-message {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+}
+
+.admin-applied-loan-action-message > span {
+    font-size: 25px;
+
+    line-height: 1;
+}
+
+.admin-applied-loan-action-message strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #5f1736;
+
+    font-size: 16px;
+}
+
+.accepted-area
+.admin-applied-loan-action-message strong {
+    color: #168044;
+}
+
+.admin-applied-loan-action-message p {
+    margin: 0;
+
+    color: #765c68;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUTTON CONTAINER
+   ========================================================= */
+
+.admin-applied-loan-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   APPROVE BUTTON
+   ========================================================= */
+
+.admin-loan-approve-btn,
+.admin-loan-reject-btn,
+.admin-loan-add-amount-btn,
+.admin-applied-loan-pay-btn {
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 12px 20px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-loan-approve-btn {
+    background: #168044;
+
+    color: white;
+}
+
+.admin-loan-approve-btn:hover {
+    background: #116a38;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(22, 128, 68, 0.20);
+}
+
+
+/* =========================================================
+   REJECT BUTTON
+   ========================================================= */
+
+.admin-loan-reject-btn {
+    background: #a0183f;
+
+    color: white;
+}
+
+.admin-loan-reject-btn:hover {
+    background: #821332;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(160, 24, 63, 0.20);
+}
+
+
+/* =========================================================
+   ADD LOAN AMOUNT
+   ========================================================= */
+
+.admin-loan-add-amount-btn {
+    background: #168044;
+
+    color: white;
+
+    min-width: 190px;
+}
+
+.admin-loan-add-amount-btn:hover {
+    background: #116a38;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(22, 128, 68, 0.20);
+}
+
+.admin-loan-add-amount-btn span {
+    margin-right: 7px;
+}
+
+
+/* =========================================================
+   DISABLED BUTTONS
+   ========================================================= */
+
+.admin-loan-approve-btn:disabled,
+.admin-loan-reject-btn:disabled,
+.admin-loan-add-amount-btn:disabled,
+.admin-applied-loan-pay-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   EMI PAYMENT AREA
+   ========================================================= */
+
+.admin-applied-loan-payment-area {
+    margin-top: 5px;
+
+    padding: 20px;
+
+    border: 1px solid #bde5ca;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3fcf6,
+            #eaf8ef
+        );
+}
+
+
+/* =========================================================
+   PAYMENT MESSAGE
+   ========================================================= */
+
+.admin-applied-loan-payment-message {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    margin-bottom: 18px;
+}
+
+.admin-payment-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #d7f2e0;
+
+    color: #08783d;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+.admin-applied-loan-payment-message strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #08783d;
+
+    font-size: 17px;
+}
+
+.admin-applied-loan-payment-message p {
+    margin: 0;
+
+    color: #416c50;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PAYMENT SUMMARY
+   ========================================================= */
+
+.admin-applied-loan-payment-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.admin-payment-summary-item {
+    padding: 15px;
+
+    border: 1px solid #d5e9dc;
+
+    border-radius: 10px;
+
+    background: white;
+
+    text-align: center;
+}
+
+.admin-payment-summary-item span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #6d7770;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+.admin-payment-summary-item strong {
+    color: #08783d;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   PAY EMI BUTTON
+   ========================================================= */
+
+.admin-applied-loan-pay-btn {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    background: #168044;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.admin-applied-loan-pay-btn:hover {
+    background: #116a38;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(22, 128, 68, 0.22);
+}
+
+.admin-applied-loan-pay-btn span {
+    margin-right: 8px;
+}
+
+
+/* =========================================================
+   COMPLETED AREA
+   ========================================================= */
+
+.admin-applied-loan-completed-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 20px;
+
+    border: 1px solid #bde3c9;
+
+    border-radius: 12px;
+
+    background: #effaf2;
+
+    color: #168044;
+}
+
+.admin-applied-loan-completed-area span {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #d7f2e0;
+
+    font-weight: 700;
+}
+
+.admin-applied-loan-completed-area strong {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CUSTOMER / LOAN SPECIAL DETAILS
+   ========================================================= */
+
+.customer-detail {
+    border-left: 4px solid #7b163f;
+}
+
+.loan-type-detail {
+    border-left: 4px solid #9c2856;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .admin-applied-loan-page {
+        padding: 30px 25px 50px;
+    }
+
+
+    .admin-applied-loan-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .admin-applied-loan-summary {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .admin-applied-loan-action-area {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .admin-applied-loan-buttons {
+        width: 100%;
+    }
+
+
+    .admin-applied-loan-buttons button {
+        flex: 1;
+    }
+
+
+    .admin-loan-add-amount-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .admin-applied-loan-page {
+        padding: 20px 15px 40px;
+    }
+
+
+    .admin-applied-loan-heading h1 {
+        font-size: 25px;
+    }
+
+
+    .admin-applied-loan-heading p {
+        font-size: 13px;
+    }
+
+
+    .admin-applied-loan-summary {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .admin-loan-summary-card {
+        padding: 18px;
+    }
+
+
+    .admin-applied-loan-section-heading {
+        padding: 16px;
+
+        align-items: flex-start;
+    }
+
+
+    .admin-applied-loan-section-heading > div {
+        align-items: flex-start;
+    }
+
+
+    .admin-applied-loan-section-heading h2 {
+        font-size: 18px;
+    }
+
+
+    .admin-applied-loan-section-heading p {
+        font-size: 12px;
+    }
+
+
+    .section-heading-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+
+    .admin-applied-loan-card {
+        padding: 17px;
+    }
+
+
+    .admin-applied-loan-card-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .admin-applied-loan-card-title h2 {
+        font-size: 20px;
+    }
+
+
+    .admin-applied-loan-status {
+        padding: 7px 12px;
+
+        font-size: 11px;
+    }
+
+
+    .admin-applied-loan-details {
+        grid-template-columns: 1fr;
+
+        gap: 11px;
+    }
+
+
+    .admin-applied-loan-action-area {
+        padding: 16px;
+    }
+
+
+    .admin-applied-loan-buttons {
+        flex-direction: column;
+    }
+
+
+    .admin-applied-loan-buttons button {
+        width: 100%;
+    }
+
+
+    .admin-applied-loan-payment-summary {
+        grid-template-columns: 1fr;
+    }
+
+
+    .admin-applied-loan-payment-area {
+        padding: 16px;
+    }
+
+
+    .admin-applied-loan-pay-btn {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .admin-applied-loan-heading-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 25px;
+    }
+
+
+    .admin-applied-loan-heading h1 {
+        font-size: 22px;
+    }
+
+
+    .admin-applied-loan-card-header {
+        flex-direction: column;
+    }
+
+
+    .admin-applied-loan-status {
+        align-self: flex-start;
+    }
+
+
+    .admin-applied-loan-section-heading {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .section-count {
+        align-self: flex-end;
+    }
+
+}
